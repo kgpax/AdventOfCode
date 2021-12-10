@@ -1,0 +1,14 @@
+{
+  "name": "adventofcode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -q index.js"
+  },
+  "author": "Kevin Paxton",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4"
+  }
+}
