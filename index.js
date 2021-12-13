@@ -66,8 +66,8 @@ const run = async (challenge, testData, realData) => {
       if (realData?.length) {
         console.log(chalk.blue('With real data:'));
         challenge[fn](realData, {
-          isTest: true,
-          isReal: false,
+          isTest: false,
+          isReal: true,
           helpers,
           chalk,
         });
