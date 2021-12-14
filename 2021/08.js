@@ -1,3 +1,14 @@
+const printSegments = segments => {
+  console.log(`👀 >>>>>  ${segments.t.repeat(4)} `);
+  console.log(`         ${segments.tl}    ${segments.tr}`);
+  console.log(`         ${segments.tl}    ${segments.tr}`);
+  console.log(`          ${segments.m.repeat(4)} `);
+  console.log(`         ${segments.bl}    ${segments.br}`);
+  console.log(`         ${segments.bl}    ${segments.br}`);
+  console.log(`          ${segments.b.repeat(4)} `);
+  console.log('');
+};
+
 exports.partOne = (data, _utils) => {
   const messages = data.map(x => x.split(' | '));
   let numUniqueSegments = 0;
@@ -34,13 +45,13 @@ exports.partTwo = (data, _utils) => {
       9: '',
     };
     const segments = {
-      t: '',
-      tl: '',
-      tr: '',
-      m: '',
-      bl: '',
-      br: '',
-      b: '',
+      t: '?',
+      tl: '?',
+      tr: '?',
+      m: '?',
+      bl: '?',
+      br: '?',
+      b: '?',
     };
 
     const gerForSequenceLength = numSegments => {
@@ -117,6 +128,14 @@ exports.partTwo = (data, _utils) => {
 
     // the remaining 5 segment number is 3
     numbers[3] = fiveSegments.take();
+
+    // find the letter in 4 not currently assigned - that's the top-left segment
+    segments.tl = numbers[4].find(x => !Object.values(segments).includes(x));
+
+    // the bottom segment is the only letter not yet assigned
+    segments.b = numbers[8].find(x => !Object.values(segments).includes(x));
+
+    // printSegments(segments);
 
     //
     //
